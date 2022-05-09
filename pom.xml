@@ -14,7 +14,7 @@
 	<name>bankline-api</name>
 	<description>REST API project developed for Santander dev week of the DIO platform</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>14</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
