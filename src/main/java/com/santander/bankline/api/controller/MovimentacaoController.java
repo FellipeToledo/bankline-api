@@ -1,19 +1,20 @@
 package com.santander.bankline.api.controller;
 
 import com.santander.bankline.api.dto.CorrentistaDTO;
+import com.santander.bankline.api.dto.MovimentacaoDTO.MovimentacaoDTO;
 import com.santander.bankline.api.model.Correntista;
+import com.santander.bankline.api.model.Movimentacao;
 import com.santander.bankline.api.repository.CorrentistaRepository;
+import com.santander.bankline.api.repository.MovimentacaoRepository;
 import com.santander.bankline.api.service.CorrentistaService;
+import com.santander.bankline.api.service.MovimentacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -22,24 +23,22 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping("/correntistas")
-public class CorrentistaController {
+@RequestMapping("/movimentacoes")
+public class MovimentacaoController {
 
     @Autowired
-    private CorrentistaRepository repository;
-
+    private MovimentacaoService service;
     @Autowired
-    private CorrentistaService service;
+    private MovimentacaoRepository repository;
 
     @GetMapping
-    public List<Correntista> findAll(){
+    public List<Movimentacao> findAll(){
         return repository.findAll();
     }
 
     @PostMapping
-    public void save (@RequestBody CorrentistaDTO correntista){
-        service.save(correntista);
-
+    public void save (@RequestBody MovimentacaoDTO movimentacao){
+       service.save(movimentacao);
 
     }
 
